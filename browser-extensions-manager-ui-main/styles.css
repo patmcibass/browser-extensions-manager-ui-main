@@ -84,20 +84,34 @@ body {
     color: var(--Neutral-900);
 }
 
+.btn.active:focus {
+    background-color: var(--Red-500);
+    border: .2rem solid var(--Neutral-900);
+    outline: .2rem solid var(--Red-500);
+}
+
 .btn.active.light {
     color: white;
+}
+
+div:focus {
+    background-color: var(--Neutral-600);
+    border: .2rem solid var(--Neutral-900);
+    outline: .2rem solid var(--Red-500);
 }
 /* focus button */
 .btn:focus {
     background-color: var(--Neutral-600);
-    border: 1px solid var(--Red-500);
+    border: .2rem solid var(--Neutral-900);
+    outline: .2rem solid var(--Red-500);
+
 }
 
 
 .darkModeImg {
     background-image: url(assets/images/icon-sun.svg);
     background-repeat: no-repeat;
-    background-size: 3rem;
+    background-size: 2rem;
     background-position: center;
     background-color: var(--Neutral-700);
 }
@@ -105,7 +119,7 @@ body {
 .lightModeImg {
     background-image: url(assets/images/icon-moon.svg);
     background-repeat: no-repeat;
-    background-size: 3rem;
+    background-size: 2rem;
     background-position: center;
     background-color: var(--Neutral-200);
 
