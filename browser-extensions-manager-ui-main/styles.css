@@ -93,38 +93,22 @@ body {
 .btn.active.light {
     color: white;
 }
-
-div:focus {
-    background-color: var(--Neutral-600);
-    border: .2rem solid var(--Neutral-900);
-    outline: .2rem solid var(--Red-500);
+.btn.active.light:focus {
+    border: .2rem solid var(--Neutral-0);
+    outline: .2rem solid var(--Red-500)
 }
+
+
 /* focus button */
 .btn:focus {
     background-color: var(--Neutral-600);
     border: .2rem solid var(--Neutral-900);
     outline: .2rem solid var(--Red-500);
-
 }
-
-
-.darkModeImg {
-    background-image: url(assets/images/icon-sun.svg);
-    background-repeat: no-repeat;
-    background-size: 2rem;
-    background-position: center;
-    background-color: var(--Neutral-700);
+button.light:focus {
+    border: .1rem solid var(--Red-500);
+    background-color: var(--Neutral-300);
 }
-
-.lightModeImg {
-    background-image: url(assets/images/icon-moon.svg);
-    background-repeat: no-repeat;
-    background-size: 2rem;
-    background-position: center;
-    background-color: var(--Neutral-200);
-
-}
-
 
 /* Header SVG FILL when Dark */
 
@@ -147,11 +131,42 @@ header {
     margin: 5rem 0;
 }
 
+.darkModeImg {
+    background-image: url(assets/images/icon-sun.svg);
+    background-repeat: no-repeat;
+    background-size: 2rem;
+    background-position: center;
+    background-color: var(--Neutral-700);
+}
+
+.lightModeImg {
+    background-image: url(assets/images/icon-moon.svg);
+    background-repeat: no-repeat;
+    background-size: 2rem;
+    background-position: center;
+    background-color: var(--Neutral-100);
+}
+
 .light-switch {
     padding: .5rem;
     border-radius: .5rem;
     height: 5rem;
     width: 5rem;
+    cursor: pointer;
+}
+
+.darkModeImg.light-switch:focus {
+    background-color: var(--Neutral-600);
+    border: .2rem solid var(--Neutral-900);
+    outline: .2rem solid var(--Red-500);
+}
+.lightModeImg.light-switch:focus {
+    border: .25rem solid red;
+    outline: none;
+}
+
+.lightModeImg:hover {
+    background-color: var(--Neutral-300);
 }
 
 /* Section */
@@ -179,6 +194,33 @@ header {
     font-size: 1.6rem;
     font-weight: 500;
     text-align: center;
+    cursor: pointer;
+}
+
+button.dark:hover,
+button.active.dark.nav:hover {
+    background-color: var(--Red-700);
+    color: var(--Neutral-900);
+    border: .1rem solid var(--Neutral-900);
+}
+
+button.dark.nav:hover {
+    background-color: var(--Neutral-600);
+    color: var(--Neutral-0);
+    border: .1rem solid var(--Neutral-900);
+}
+button.light:hover,
+button.active.light.nav:hover {
+    background-color: var(--Red-500);
+    color: var(--Neutral-0);
+    border: .1rem solid var(--Neutral-900);
+    outline: none;
+}
+
+button.light.nav:hover {
+    background-color: var(--Neutral-300);
+    color: var(--Neutral-900);
+    border: .01rem solid var(--Neutral-300);
 }
 
 /* Main */
@@ -238,6 +280,9 @@ main {
 .tog-light {
     background-color: var(--Neutral-200);
 }
+.tog-light:focus {
+    outline: .1rem solid var(--Red-500);
+}
 
 .toggle {
     width: 4rem;
@@ -281,3 +326,4 @@ p {
     font-weight: 300;
     font-size: 1.4rem;
 }
+

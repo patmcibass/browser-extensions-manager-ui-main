@@ -24,7 +24,7 @@ fetch ("./data.json")
 
 // Populate Site Function
 
-// figure out how to add the check mark
+// check mark
 let check = 0;
 
 const createDiv = function(e) {
