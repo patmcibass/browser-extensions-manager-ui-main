@@ -1,3 +1,15 @@
+let check = 0;
+
+
+fetch ("./data.json")
+    .then(function(resp) {
+        return resp.json();
+    })
+    .then(function(obj) {
+        obj.forEach((e) => createDiv(e))
+    });
+
+
 const main = document.getElementById('main');
 const body = document.body;
 const lightSwitch = document.getElementById('light-mode');
@@ -9,23 +21,11 @@ const svgPath = document.querySelectorAll('path');
 const darkModeImg = './assets/images/icon-sun.svg'
 const lightModeImg = './assets/images/icon-moon.svg'
 
-// lightSwitch.src = darkModeImg;
-
-// let doubleCheck = lightSwitch.innerHTML
-
-let myObj;
-fetch ("./data.json")
-    .then(function(resp) {
-        return resp.json();
-    })
-    .then(function(obj) {
-        obj.forEach((e) => createDiv(e))
-    });
 
 // Populate Site Function
 
 // check mark
-let check = 0;
+
 
 const createDiv = function(e) {
 
@@ -43,13 +43,16 @@ const createDiv = function(e) {
       <section class="button-wrap">
         <button class="dark btn">Remove</button>
         <div class="toggle-container">
-        <input type="checkbox" id="${check}">
+        <input type="checkbox" id="${check}" class="checkBoxes">
         <label for="${check}" class="toggle tog-dark"></label>
         </div>
       </section>
     </section>`
-    let activeStatus = e.isActive
-    check ++
+
+    e.isActive? document.getElementById(check).checked = true: document.getElementById(check).checked = false;
+    
+    check ++;
+    
 }
 
 // make light and dark mode work

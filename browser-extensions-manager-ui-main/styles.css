@@ -139,6 +139,10 @@ header {
     background-color: var(--Neutral-700);
 }
 
+.darkModeImg:hover {
+    background-color: var(--Neutral-600);
+}
+
 .lightModeImg {
     background-image: url(assets/images/icon-moon.svg);
     background-repeat: no-repeat;
