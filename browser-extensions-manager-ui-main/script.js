@@ -1,33 +1,35 @@
 let check = 0;
 
+let jsonData;
 
 fetch ("./data.json")
     .then(function(resp) {
         return resp.json();
     })
     .then(function(obj) {
+        jsonData = obj
         obj.forEach((e) => createDiv(e))
     });
 
 
-const main = document.getElementById('main');
-const body = document.body;
-const lightSwitch = document.getElementById('light-mode');
-const myToggle = document.getElementsByClassName('toggle');
-const h1 = document.querySelector('h1');
-const svgPath = document.querySelectorAll('path');
-// const darkModeImg = `<img class="light-switch" src='./assets/images/icon-sun.svg' alt="Light"></img>`
-// const lightModeImg = `<img class="light-switch" src='./assets/images/icon-moon.svg' alt="Light"></img>`
+
+const main = document.getElementById('main')
+const body = document.body
+const lightSwitch = document.getElementById('light-mode')
+const myToggle = document.getElementsByClassName('toggle')
+const h1 = document.querySelector('h1')
+const svgPath = document.querySelectorAll('path')
 const darkModeImg = './assets/images/icon-sun.svg'
 const lightModeImg = './assets/images/icon-moon.svg'
 
+const btnActive = document.getElementById('btnActive')
+const btninActive = document.getElementById('btnInactive')
+const btnAll = document.getElementById('btnAll')
 
 // Populate Site Function
 
-// check mark
 
-
-const createDiv = function(e) {
+function createDiv(e) {
 
     main.innerHTML += `<section class="container dark">
       <section class="icon-container">
@@ -43,17 +45,17 @@ const createDiv = function(e) {
       <section class="button-wrap">
         <button class="dark btn">Remove</button>
         <div class="toggle-container">
-        <input type="checkbox" id="${check}" class="checkBoxes">
+        <input type="checkbox" id="${check}" class="checkBoxes" ${e.isActive? 'checked = "true"': ''}>
         <label for="${check}" class="toggle tog-dark"></label>
         </div>
       </section>
     </section>`
-
-    e.isActive? document.getElementById(check).checked = true: document.getElementById(check).checked = false;
     
     check ++;
-    
 }
+
+
+
 
 // make light and dark mode work
 
@@ -139,9 +141,14 @@ function toDark () {
 
 }
 
-
-    
-
 // Make active button work
 
+let inputList = document.getElementsByTagName('input')
 
+btnActive.addEventListener('click',activeButton)
+
+function activeButton() {
+  console.log(inputList)
+  
+  console.log('it works')
+}
