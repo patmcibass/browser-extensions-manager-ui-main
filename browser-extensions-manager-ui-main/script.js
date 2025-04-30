@@ -23,15 +23,16 @@ const darkModeImg = './assets/images/icon-sun.svg'
 const lightModeImg = './assets/images/icon-moon.svg'
 
 const btnActive = document.getElementById('btnActive')
-const btninActive = document.getElementById('btnInactive')
+const btnInactive = document.getElementById('btnInactive')
 const btnAll = document.getElementById('btnAll')
+
 
 // Populate Site Function
 
 
 function createDiv(e) {
 
-    main.innerHTML += `<section class="container dark">
+    main.innerHTML += `<section class="container dark" id="container${check}">
       <section class="icon-container">
         <img src=${e.logo} alt="logo">
         <div class="text-div">
@@ -43,7 +44,7 @@ function createDiv(e) {
       </section>
 
       <section class="button-wrap">
-        <button class="dark btn">Remove</button>
+        <button class="dark remove btn" id="remove${check}">Remove</button>
         <div class="toggle-container">
         <input type="checkbox" id="${check}" class="checkBoxes" ${e.isActive? 'checked = "true"': ''}>
         <label for="${check}" class="toggle tog-dark"></label>
@@ -143,12 +144,60 @@ function toDark () {
 
 // Make active button work
 
-let inputList = document.getElementsByTagName('input')
+const inputList = document.getElementsByTagName('input')
 
 btnActive.addEventListener('click',activeButton)
 
 function activeButton() {
-  console.log(inputList)
-  
-  console.log('it works')
+  allButton()
+  check = 0;
+  for(const input of inputList){
+    const section = document.getElementById(`container${check}`)
+    if(!input.checked == true){
+      section.style.display = 'none'
+    }
+    check++
+  } 
+}
+
+// ALL BUTTON
+btnAll.addEventListener('click', allButton)
+
+function allButton(){
+  const sections = document.getElementsByClassName('container')
+  for(div of sections){
+    div.style.display = 'block'
+  }
+}
+
+// INACTIVE BUTTON
+
+btnInactive.addEventListener('click', inactiveButton)
+
+function inactiveButton(){
+  allButton()
+  check = 0;
+  for(const input of inputList){
+    const section = document.getElementById(`container${check}`)
+    if(input.checked == true){
+      section.style.display = 'none'
+    }
+    check++
+  } 
+}
+
+// REMOVE BUTTON not working
+const removeButtons = document.getElementsByClassName('remove')
+
+for(const btn of removeButtons){
+  btn.addEventListener('click', removeBtn)
+}
+
+function removeBtn() {
+  const btnId = this.id
+  console.log(btnId)
+  const idEndsWith = this.id.charAt(this.id.length - 1)
+
+  const section = document.getElementById(`container${idEndsWith}`)
+  section.style.display = 'none'
 }
