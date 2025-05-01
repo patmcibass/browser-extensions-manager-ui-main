@@ -44,7 +44,7 @@ function createDiv(e) {
       </section>
 
       <section class="button-wrap">
-        <button class="dark remove btn" id="remove${check}">Remove</button>
+        <button class="dark removeBtn btn" onclick="removeBtnFunc(${check})" id="remove${check}">Remove</button>
         <div class="toggle-container">
         <input type="checkbox" id="${check}" class="checkBoxes" ${e.isActive? 'checked = "true"': ''}>
         <label for="${check}" class="toggle tog-dark"></label>
@@ -154,7 +154,7 @@ function activeButton() {
   for(const input of inputList){
     const section = document.getElementById(`container${check}`)
     if(!input.checked == true){
-      section.style.display = 'none'
+      section.classList.add('none')
     }
     check++
   } 
@@ -166,7 +166,10 @@ btnAll.addEventListener('click', allButton)
 function allButton(){
   const sections = document.getElementsByClassName('container')
   for(div of sections){
-    div.style.display = 'block'
+    div.classList.remove('none')
+    if(!div.classList.contains('remove')){
+      div.classList.add('block')
+    }
   }
 }
 
@@ -180,24 +183,15 @@ function inactiveButton(){
   for(const input of inputList){
     const section = document.getElementById(`container${check}`)
     if(input.checked == true){
-      section.style.display = 'none'
+      section.classList.add('none')
     }
     check++
   } 
 }
 
 // REMOVE BUTTON not working
-const removeButtons = document.getElementsByClassName('remove')
-
-for(const btn of removeButtons){
-  btn.addEventListener('click', removeBtn)
-}
-
-function removeBtn() {
-  const btnId = this.id
-  console.log(btnId)
-  const idEndsWith = this.id.charAt(this.id.length - 1)
-
-  const section = document.getElementById(`container${idEndsWith}`)
-  section.style.display = 'none'
+function removeBtnFunc(i){
+  console.log(i)
+  const containerId = document.getElementById(`container${i}`)
+  containerId.classList.add('remove')
 }

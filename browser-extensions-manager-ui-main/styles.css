@@ -188,7 +188,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 25%;
+    width: 25vw;
 }
 
  button {
@@ -244,6 +244,7 @@ main {
     width: 32rem;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
     border-radius: 2rem;
     padding: 1.5rem;
 }
@@ -330,4 +331,78 @@ p {
     font-weight: 300;
     font-size: 1.4rem;
 }
+.block {
+    display: block;
+}
+.none {
+    display: none;
+}
 
+.remove {
+    display: none;
+}
+
+/* MEDIA QUERRY  ---  */
+@media (max-width: 920px) {
+    header {
+        width: 90vw;
+        margin:  5rem auto;
+    }
+
+    .flex-container {
+        width: 100vw;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: -2rem 0 3rem 0;
+        gap: 2rem;
+    }
+
+    .button-container{
+        width: 100vw;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    main {
+        width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        width: 32rem;
+    }
+}
+
+@media (max-width: 450px) {
+    header {
+        width: 90vw;
+        margin:  5rem auto;
+    }
+
+    .flex-container {
+        width: 100vw;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: -2rem 0 3rem 0;
+        gap: 2rem;
+    }
+
+    .button-container{
+        width: 100vw;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    main {
+        width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        width: 25rem;
+    }
+}
